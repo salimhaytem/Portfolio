@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion"; // ✅ Import Framer Motion
 import { FaDownload } from "react-icons/fa";
 import myImage from "../assets/moi.png";
 import cvFile from "../assets/CV_Salim_Haytem.pdf";
@@ -10,22 +11,47 @@ const Hero = () => {
       className="bg-gradient-to-br from-[#05050A] to-[#0B0F19] text-white min-h-screen flex items-center justify-center px-6 md:px-16 lg:px-24 scroll-smooth"
     >
       <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        {/* Text section */}
-        <div className="space-y-8">
+
+        {/* === Texte animé === */}
+        <motion.div
+          className="space-y-8"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true }}
+        >
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
             Hey! I'm <span className="text-indigo-400">Salim Haytem</span>
           </h1>
 
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-gray-300">
+          <motion.h2
+            className="text-3xl md:text-4xl lg:text-5xl font-semibold text-gray-300"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true }}
+          >
             I Design the Future!
-          </h2>
+          </motion.h2>
 
-          <p className="text-lg md:text-xl text-gray-400 max-w-2xl leading-relaxed">
+          <motion.p
+            className="text-lg md:text-xl text-gray-400 max-w-2xl leading-relaxed"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true }}
+          >
             I'm a passionate and dedicated Software Engineer & AI Enthusiast
             with a love for turning ideas into impactful solutions.
-          </p>
+          </motion.p>
 
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 pt-4">
+          <motion.div
+            className="flex flex-col sm:flex-row items-start sm:items-center gap-6 pt-4"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true }}
+          >
             <a
               href={cvFile}
               download
@@ -37,10 +63,10 @@ const Hero = () => {
               <span className="w-2 h-2 bg-green-500 rounded-full"></span>
               Available for Work
             </p>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
-        {/* Image section */}
+        {/* === Image non animée === */}
         <div className="flex justify-center lg:justify-end">
           <div className="relative">
             <img

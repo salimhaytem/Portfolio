@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { motion } from "framer-motion"; // ✅ Import de Framer Motion
 
 const PortfolioProjects = () => {
   const [showAllProjects, setShowAllProjects] = useState(false);
@@ -7,63 +8,63 @@ const PortfolioProjects = () => {
   const allProjects = [
     {
       id: 1,
-      category: 'AI',
-      title: 'GigBooster – AI-Powered Fiverr Gig SEO Generator',
+      category: "AI",
+      title: "GigBooster – AI-Powered Fiverr Gig SEO Generator",
       description:
         "GigBooster is an AI-based platform that automatically generates SEO-optimized Fiverr service descriptions tailored to the user's expertise and freelance domain.",
-      image: 'p1.jpg',
-      tags: ['Next.js', 'Gemini', 'Neon DB'],
-      link: '#',
+      image: "p1.jpg",
+      tags: ["Next.js", "Gemini", "Neon DB"],
+      link: "#",
     },
     {
       id: 2,
-      category: 'Web Development',
-      title: 'Luxedrive – Luxury Car Rental Platform',
+      category: "Web Development",
+      title: "Luxedrive – Luxury Car Rental Platform",
       description:
-        'Luxedrive is a premium web app for booking luxury cars with a modern interface, customized reservation system, dynamic car management, and responsive design for optimal user experience.',
-      image: 'p2.jpg',
-      tags: ['Next.js', 'Tailwind CSS', 'GraphQL'],
-      link: '#',
+        "Luxedrive is a premium web app for booking luxury cars with a modern interface, customized reservation system, dynamic car management, and responsive design for optimal user experience.",
+      image: "p2.jpg",
+      tags: ["Next.js", "Tailwind CSS", "GraphQL"],
+      link: "#",
     },
     {
       id: 3,
-      category: 'Finance',
-      title: 'Trackify – Personal Finance Management App',
+      category: "Finance",
+      title: "Trackify – Personal Finance Management App",
       description:
-        'Trackify is an intuitive web app for tracking income, expenses, goals, and balances in real-time with interactive visualizations and a personalized dashboard.',
-      image: 'p3.jpg',
-      tags: ['Next.js', 'Tailwind CSS', 'Chart.js', 'Firebase'],
-      link: '#',
+        "Trackify is an intuitive web app for tracking income, expenses, goals, and balances in real-time with interactive visualizations and a personalized dashboard.",
+      image: "p3.jpg",
+      tags: ["Next.js", "Tailwind CSS", "Chart.js", "Firebase"],
+      link: "#",
     },
     {
       id: 4,
-      category: 'E-commerce',
-      title: 'ShopHub – Modern E-commerce Solution',
+      category: "E-commerce",
+      title: "ShopHub – Modern E-commerce Solution",
       description:
-        'A complete e-commerce platform with advanced features including real-time inventory, payment processing, and order management.',
-      image: 'p4.jpg',
-      tags: ['React', 'Node.js', 'MongoDB'],
-      link: '#',
+        "A complete e-commerce platform with advanced features including real-time inventory, payment processing, and order management.",
+      image: "p4.jpg",
+      tags: ["React", "Node.js", "MongoDB"],
+      link: "#",
     },
     {
       id: 5,
-      category: 'Social Media',
-      title: 'ConnectHub – Social Networking Platform',
+      category: "Social Media",
+      title: "ConnectHub – Social Networking Platform",
       description:
-        'A modern social networking platform with real-time messaging, content sharing, and community features.',
-      image: 'p5.jpg',
-      tags: ['React', 'Firebase', 'Tailwind CSS'],
-      link: '#',
+        "A modern social networking platform with real-time messaging, content sharing, and community features.",
+      image: "p5.jpg",
+      tags: ["React", "Firebase", "Tailwind CSS"],
+      link: "#",
     },
     {
       id: 6,
-      category: 'Productivity',
-      title: 'TaskMaster – Project Management Tool',
+      category: "Productivity",
+      title: "TaskMaster – Project Management Tool",
       description:
-        'An intuitive project management tool with kanban boards, time tracking, and team collaboration features.',
-      image: 'p6.jpg',
-      tags: ['Next.js', 'PostgreSQL', 'Prisma'],
-      link: '#',
+        "An intuitive project management tool with kanban boards, time tracking, and team collaboration features.",
+      image: "p6.jpg",
+      tags: ["Next.js", "PostgreSQL", "Prisma"],
+      link: "#",
     },
   ];
 
@@ -77,15 +78,27 @@ const PortfolioProjects = () => {
       <div className="max-w-7xl mx-auto">
         {/* Section Title */}
         <div className="mb-16 text-center">
-          <h2 className="text-5xl font-bold text-white">My Projects</h2>
+          <motion.h2
+            className="text-5xl font-bold text-white"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            My Projects
+          </motion.h2>
         </div>
 
         {/* Projects Grid */}
         <div className="space-y-40 mb-20">
           {displayedProjects.map((project, index) => (
-            <div
+            <motion.div
               key={project.id}
               className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+              initial={{ opacity: 0, y: 80 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.9, ease: "easeOut" }}
+              viewport={{ once: true }}
             >
               {/* Alternance gauche-droite */}
               {index % 2 === 0 ? (
@@ -169,7 +182,7 @@ const PortfolioProjects = () => {
                   </div>
                 </>
               )}
-            </div>
+            </motion.div>
           ))}
         </div>
 
